@@ -27,9 +27,15 @@ public class display_data extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_data);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Attendee");
+
+
+        final String mPost_key = getIntent().getExtras().getString("event_id");
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child( "Events" ).child( mPost_key ).child( "Attendee" );
 
         mUserList = (ListView) findViewById(R.id.user_list);
+
+
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, mUsernames);
         mUserList.setAdapter(arrayAdapter);

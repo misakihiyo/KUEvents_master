@@ -10,4 +10,5 @@
     <string name="events">Events</string>
     <string name="profile">Profile</string>
     <string name="location">Location</string>
+    <string name="title_activity_navigation">KU Events</string>
 </resources>

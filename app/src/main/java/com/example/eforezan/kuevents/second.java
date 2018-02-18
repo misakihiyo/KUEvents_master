@@ -28,7 +28,7 @@ import java.util.HashMap;
 
 public class second extends AppCompatActivity {
 
-    //private String mPost_key = null;
+   String event_title;
 
     private DatabaseReference mDatabase;
 
@@ -53,7 +53,7 @@ public class second extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Events");
 
-        String mPost_key = getIntent().getExtras().getString("event_id");
+        final String mPost_key = getIntent().getExtras().getString("event_id");
 
         mEventSingleImage = (ImageView) findViewById(R.id.image_event);
         mEventSingleTitle = (TextView) findViewById(R.id.title_view);
@@ -62,6 +62,8 @@ public class second extends AppCompatActivity {
 
         //Toast.makeText(second.this, mPost_key, Toast.LENGTH_LONG).show();
 
+        //button_sbm = (Button) findViewById(R.id.button);
+        button_showdb = (Button) findViewById(R.id.button_showdb);
 
 
 
@@ -73,10 +75,35 @@ public class second extends AppCompatActivity {
                 String event_desc = (String) dataSnapshot.child("desc").getValue();
                 String event_image = (String) dataSnapshot.child("image").getValue();
 
+                final String post_key= (String) dataSnapshot.getKey();
+
+               // final String post_key= mDatabase.child("title").push().getKey();
+
+                //added
+                //final String post_key = (String) dataSnapshot.getChildren().iterator().next().getKey();
+
+                //String uid = mDatabase.child("Events").push().getKey();
+                //Log.i("uid", uid);
+
+
+
                 mEventSingleTitle.setText(event_title);
                 mEventSingleDesc.setText(event_desc);
 
                 Picasso.with(second.this).load(event_image).into(mEventSingleImage);
+
+                    button_showdb.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view2) {
+
+                           // Toast.makeText(second.this, post_key, Toast.LENGTH_SHORT).show();
+                            Intent intent2 = new Intent(second.this, display_data.class);
+                            intent2.putExtra("event_id", post_key);
+                            startActivity(intent2);
+                        }
+                    });
+
+
 
 
             }
@@ -92,13 +119,24 @@ public class second extends AppCompatActivity {
         //radio_b = (RadioButton) findViewById(selected_id);
 
 
-        button_sbm = (Button) findViewById(R.id.button);
-        button_showdb = (Button) findViewById(R.id.button_showdb);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Attendee");
+
+
+        /*button_showdb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view2) {
+
+                Toast.makeText(second.this, event_title, Toast.LENGTH_SHORT).show();
+                //Intent intent2 = new Intent(second.this, display_data.this);
+                //intent2.putExtra("event_id", post_key);
+                //startActivity(intent2);
+            }
+        });
+        */
+
 
 
         // AddData();
-        showdb();
+        //showdb();
 
 
 
@@ -144,16 +182,7 @@ public class second extends AppCompatActivity {
 
 
 
-    public void showdb(){
-        button_showdb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view2) {
-                Intent intent2 = new Intent("com.example.eforezan.kuevents.display_data");
-                startActivity(intent2);
-            }
-        });
 
-    }
 
 
 

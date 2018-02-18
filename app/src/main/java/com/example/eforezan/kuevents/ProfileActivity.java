@@ -87,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, HomePage.class));
+                startActivity(new Intent(ProfileActivity.this, navigation.class));
             }
         });
 

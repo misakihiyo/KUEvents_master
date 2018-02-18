@@ -32,7 +32,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,15 +40,20 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.MainActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
-
         <activity android:name=".HomePage">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.HomePage" />
@@ -56,7 +61,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.RegisterActivity" />
@@ -64,7 +68,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ProfileActivity">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.ProfileActivity" />
@@ -72,7 +75,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".second">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.second" />
@@ -80,7 +82,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".display_data">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.display_data" />
@@ -88,7 +89,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -113,9 +113,14 @@
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="com.example.eforezan.kuevents.MapsActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".navigation"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

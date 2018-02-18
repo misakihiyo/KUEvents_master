@@ -7,17 +7,6 @@
     tools:context="com.example.eforezan.kuevents.second">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="116dp"
-        android:text="submit"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_showdb"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/image_event"
         android:layout_width="wrap_content"
@@ -38,13 +27,16 @@
 
     <Button
         android:id="@+id/button_showdb"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="20dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@color/white"
         android:text="Going list"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        />
 
     <TextView
         android:id="@+id/title_view"
@@ -63,6 +55,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="?android:attr/colorPrimaryDark"
         android:scrollIndicators="top"
         android:scrollbars="vertical"
         android:text="TextView"

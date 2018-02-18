@@ -108,6 +108,7 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
                         mDateSetListener,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getDatePicker().setMinDate( System.currentTimeMillis()-1000 );
                 dialog.show();
             }
         });
@@ -137,6 +138,7 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
                         kDateSetListener,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getDatePicker().setMinDate( System.currentTimeMillis()-1000 );
                 dialog.show();
             }
         });
@@ -237,6 +239,8 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
         final String starttime_value = mStartTime.getText().toString().trim();
         final String endtime_value= mEndTime.getText().toString().trim();
 
+
+
         if (!TextUtils.isEmpty(title_value) && !TextUtils.isEmpty(desc_value) && mimageUri!=null){
             mProgress.show();
             StorageReference filepath = mStorage.child("Event Images").child(mimageUri.getLastPathSegment());
@@ -258,8 +262,9 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
+
                     mProgress.dismiss();
-                    startActivity(new Intent(PostActivity.this, HomePage.class));
+                    startActivity(new Intent(PostActivity.this, navigation.class));
                 }
             });
         }

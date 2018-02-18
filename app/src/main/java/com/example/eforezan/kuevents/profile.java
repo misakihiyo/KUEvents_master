@@ -43,7 +43,6 @@ public class profile extends Fragment {
     private void setupViewPager(ViewPager viewPager){
         sliderAdapter adapter = new sliderAdapter(getChildFragmentManager());
         adapter.addFragment(new tab1(), "Profile");
-        adapter.addFragment(new tab2(), "Events posts");
         adapter.addFragment(new tab3(), "Attended");
         viewPager.setAdapter(adapter);
     }
